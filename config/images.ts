@@ -17,13 +17,34 @@ export const unsplash = (id: string, width = 1200) =>
 
 export type Photo = { src: string; alt: string };
 
+/** Home hero background slideshow. Add, remove or reorder freely (landscape photos work best). */
+export const heroSlides: (Photo & { label: string })[] = [
+  {
+    src: unsplash("1599995903128-531fc7fb694b", 2400),
+    alt: "Construction cranes over a building site with concrete foundations at low sun",
+    label: "Foundations",
+  },
+  {
+    src: unsplash("1508450859948-4e04fabaa4ea", 2400),
+    alt: "Grey concrete building frame under construction",
+    label: "Structure",
+  },
+  {
+    src: unsplash("1580587771525-78b9dba3b914", 2400),
+    alt: "Contemporary concrete villa under a blue sky",
+    label: "Buildings",
+  },
+  {
+    src: unsplash("1774931363306-5a896cd4dd02", 2400),
+    alt: "Construction workers pouring concrete on a sunny day",
+    label: "On site",
+  },
+];
+
 // ── Fixed slots used across the pages ────────────────────────────────────────
 export const images = {
-  /** Home hero (portrait crop) */
-  hero: {
-    src: unsplash("1508450859948-4e04fabaa4ea", 1400),
-    alt: "Grey concrete building frame under construction",
-  },
+  /** Used for social sharing previews (first hero slide) */
+  hero: heroSlides[0],
   /** Home: "Structure you can see" trio */
   structural: [
     {

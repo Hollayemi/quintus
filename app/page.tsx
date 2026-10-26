@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { Btn, ImageReveal, LineReveal, Reveal } from "@/components/motion";
+import { HeroSlider } from "@/components/HeroSlider";
+import { Btn, ImageReveal, Reveal } from "@/components/motion";
 import { Eyebrow } from "@/components/Section";
 import { SectorShowcase } from "@/components/SectorShowcase";
-import { process, services, site, whyUs } from "@/config/site";
+import { process, services, whyUs } from "@/config/site";
 import { byId, images } from "@/config/images";
 
 const featured = ["b-balconies", "i-living-kitchen", "s-pour", "b-concrete-timber", "i-kitchen"].map(byId);
@@ -11,66 +12,7 @@ const tag = { exterior: "Building", interior: "Interior", site: "Structure & sit
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="bp-grid relative overflow-hidden bg-navy-deep text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 pb-16 pt-12 md:grid-cols-12 md:gap-8 md:pb-24 md:pt-20">
-          <div className="flex flex-col justify-between md:col-span-7">
-            <div>
-              <Reveal y={10}>
-                <p className="label text-white/60">Civil · Structural · Building works — Lagos, Nigeria</p>
-              </Reveal>
-              <h1 className="display mt-8 text-[2.9rem] sm:text-6xl lg:text-[4.4rem] xl:text-[5rem]">
-                <LineReveal delay={0.1}>Engineered, built</LineReveal>
-                <LineReveal delay={0.22}>and handed over</LineReveal>
-                <LineReveal delay={0.34} className="text-copper">as promised.</LineReveal>
-              </h1>
-              <Reveal delay={0.6} y={16}>
-                <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
-                  {site.legalName} takes projects from concept to handover: costing, design
-                  coordination, construction and commissioning, with one accountable team on
-                  time, within budget and to specification.
-                </p>
-              </Reveal>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Btn href="/projects" delay={0.8}>See our work</Btn>
-                <Btn href="/contact" variant="outline" delay={0.92} arrow={false}>Request a quote</Btn>
-              </div>
-            </div>
-
-            <Reveal delay={1} y={12}>
-              <dl className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-white/20 pt-6">
-                {[
-                  ["Since", String(site.established)],
-                  ["Services", "6"],
-                  ["Process", "6 stages"],
-                ].map(([k, v]) => (
-                  <div key={k}>
-                    <dt className="label text-white/50">{k}</dt>
-                    <dd className="display mt-2 text-2xl">{v}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-          </div>
-
-          <figure className="md:col-span-5">
-            <ImageReveal
-              src={images.hero.src}
-              alt={images.hero.alt}
-              priority
-              delay={0.2}
-              sizes="(min-width:768px) 40vw, 100vw"
-              className="aspect-[3/4] !bg-navy"
-            />
-            <Reveal delay={1.1} y={8}>
-              <div className="mt-4 flex items-center gap-3 text-white/60">
-                <span className="dim w-16" aria-hidden />
-                <figcaption className="label">Fig. 01 — Concrete frame under construction</figcaption>
-              </div>
-            </Reveal>
-          </figure>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* INTRO */}
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">

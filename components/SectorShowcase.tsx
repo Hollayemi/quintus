@@ -118,7 +118,7 @@ export function SectorShowcase() {
                 )}
               </div>
 
-              <div className="flex h-14 items-center gap-5 pb-0">
+              <div className="flex h-14 items-center gap-5 overflow-hidden">
                 <Icon slug={s.slug} />
                 <span
                   className={`display whitespace-nowrap text-xl normal-case transition-opacity duration-300 ${on ? "opacity-100 delay-300" : "opacity-0"}`}
