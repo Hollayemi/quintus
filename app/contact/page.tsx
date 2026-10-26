@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ImageReveal } from "@/components/motion";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHead } from "@/components/PageHead";
 import { images } from "@/config/images";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <PageHead eyebrow="Contact" title="Tell us about your site.">
+      <PageHead eyebrow="Contact" title="Tell us about your site." image={images.pageHero.contact}>
         Share a brief, a set of drawings or just an idea. We will come back with next
         steps and a site visit.
       </PageHead>
@@ -23,9 +23,7 @@ export default function Contact() {
           <ContactForm />
         </div>
         <aside className="md:col-span-5">
-          <div className="relative aspect-[4/3] overflow-hidden bg-paper-2">
-            <Image src={images.contactSide.src} alt={images.contactSide.alt} fill sizes="(min-width:768px) 40vw, 100vw" className="object-cover" />
-          </div>
+          <ImageReveal src={images.contactSide.src} alt={images.contactSide.alt} sizes="(min-width:768px) 40vw, 100vw" className="aspect-[4/3]" from="left" />
           <dl className="mt-8 border-t border-ink/30">
             {[
               ["Head office", <address key="a" className="not-italic">{site.address.map((l) => <span key={l} className="block">{l}</span>)}</address>],

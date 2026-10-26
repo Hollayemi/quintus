@@ -42,10 +42,10 @@ export const images = {
       caption: "Scaffold access to upper floors",
     },
   ],
-  /** About page, wide banner */
+  /** About page, wide banner (below the hero) */
   aboutBanner: {
-    src: unsplash("1599995903128-531fc7fb694b", 2000),
-    alt: "Construction cranes over a building site with concrete foundations at low sun",
+    src: unsplash("1774931363306-5a896cd4dd02", 2000),
+    alt: "Construction workers pouring concrete on a sunny day",
   },
   /** About page, side image */
   aboutSide: {
@@ -57,11 +57,41 @@ export const images = {
     src: unsplash("1541888946425-d81bb19240f5", 2000),
     alt: "Construction workers standing together on site",
   },
+  /** Sub-page hero backgrounds (full-bleed, darkened automatically) */
+  pageHero: {
+    about: {
+      src: unsplash("1599995903128-531fc7fb694b", 2400),
+      alt: "Construction cranes over a building site with concrete foundations at low sun",
+    },
+    services: {
+      src: unsplash("1535732759880-bbd5c7265e3f", 2400),
+      alt: "Tower crane seen from below",
+    },
+    projects: {
+      src: unsplash("1580587771525-78b9dba3b914", 2400),
+      alt: "Contemporary concrete villa under a blue sky",
+    },
+    contact: {
+      src: unsplash("1608303588026-884930af2559", 2400),
+      alt: "People reviewing architectural blueprints on a desk",
+    },
+  },
   /** Contact page, side image */
   contactSide: {
     src: unsplash("1721244654394-36a7bc2da288", 1200),
     alt: "Architectural blueprint of a multi-storey building",
   },
+};
+
+// ── Sector showcase (Home), keyed by `slug` in config/site.ts ────────────────
+export const sectorImages: Record<string, Photo> = {
+  residential: { src: unsplash("1721815693498-cc28507c0ba2", 1400), alt: "Two-storey house with balconies and large windows" },
+  commercial: { src: unsplash("1565008447742-97f6f38c985c", 1400), alt: "Tall commercial buildings under a cloudy blue sky" },
+  industrial: { src: unsplash("1627052428109-576e839d100a", 1400), alt: "Tall metal silos with ladders against a clear sky" },
+  healthcare: { src: unsplash("1586773860418-d37222d8fce3", 1400), alt: "Concrete healthcare building under a blue sky" },
+  education: { src: unsplash("1705810591530-02053b1a9954", 1400), alt: "School building with a sports court in front" },
+  faith: { src: unsplash("1555696958-c5049b866f6f", 1400), alt: "Brown concrete church building" },
+  infrastructure: { src: unsplash("1562033291-d09c5d4cb8cc", 1400), alt: "Grey concrete flyover" },
 };
 
 // ── Project gallery (Projects page + Home "Selected work") ───────────────────

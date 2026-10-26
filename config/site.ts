@@ -79,27 +79,38 @@ export const disciplines = [
 
 export const sectors = [
   {
-    title: "Healthcare",
-    text: "Hospitals, clinics and diagnostic centres, including renovation of facilities that stay in operation.",
+    slug: "residential",
+    title: "Residential",
+    text: "Estates, apartment blocks and private homes for developers and individual owners.",
   },
   {
-    title: "Education",
-    text: "Schools, hostels, laboratories and campus infrastructure.",
-  },
-  {
+    slug: "commercial",
     title: "Commercial",
     text: "Offices, retail, banking halls and mixed-use buildings.",
   },
   {
-    title: "Residential & real estate",
-    text: "Estates, apartment blocks and private homes for developers and individual owners.",
+    slug: "industrial",
+    title: "Industrial",
+    text: "Gantries, tank-farm fabrication and industrial facilities, built around plant and process.",
   },
   {
+    slug: "healthcare",
+    title: "Healthcare",
+    text: "Hospitals, clinics and diagnostic centres, including renovation of facilities that stay in operation.",
+  },
+  {
+    slug: "education",
+    title: "Education",
+    text: "Schools, hostels, laboratories and campus infrastructure.",
+  },
+  {
+    slug: "faith",
     title: "Faith & community",
     text: "Churches, mosques, halls and community facilities.",
   },
   {
-    title: "Public sector & infrastructure",
+    slug: "infrastructure",
+    title: "Public & infrastructure",
     text: "Roads, drainage and public buildings for government and development agencies.",
   },
 ];

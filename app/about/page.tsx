@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ImageReveal, Reveal } from "@/components/motion";
 import { PageHead } from "@/components/PageHead";
 import { Eyebrow } from "@/components/Section";
 import { images } from "@/config/images";
@@ -14,7 +14,7 @@ export default function About() {
   const [ceo, ...rest] = team;
   return (
     <>
-      <PageHead eyebrow="Company" title="Builders with an engineer's discipline.">
+      <PageHead eyebrow="Company" title="Builders with an engineer's discipline." image={images.pageHero.about}>
         Quintus Projects Ltd is a Nigerian construction and project management
         company that delivers civil and building works on time, within budget and to
         specification.
@@ -36,7 +36,7 @@ export default function About() {
             ))}
           </dl>
         </div>
-        <div className="space-y-6 text-[1.1rem] leading-relaxed text-ink/85 md:col-span-8">
+        <Reveal className="space-y-6 text-[1.1rem] leading-relaxed text-ink/85 md:col-span-8">
           <p>
             We take projects from concept to handover. Our team coordinates design,
             prepares detailed Bills of Quantities, manages procurement, builds,
@@ -56,11 +56,11 @@ export default function About() {
             project is run with the same discipline: transparent costing, documented
             quality control, safe sites and regular progress reporting.
           </p>
-        </div>
+        </Reveal>
       </section>
 
-      <div className="relative mx-auto aspect-[21/9] max-w-7xl overflow-hidden bg-paper-2 md:mx-6 xl:mx-auto">
-        <Image src={images.aboutBanner.src} alt={images.aboutBanner.alt} fill sizes="100vw" className="object-cover" />
+      <div className="mx-auto max-w-7xl md:px-6">
+        <ImageReveal src={images.aboutBanner.src} alt={images.aboutBanner.alt} sizes="100vw" className="aspect-[4/3] md:aspect-[21/9]" />
       </div>
 
       <section className="mx-auto grid max-w-7xl gap-px bg-ink/15 px-0 py-0 md:my-0 md:grid-cols-2">
@@ -80,9 +80,11 @@ export default function About() {
         <ul className="mt-10 grid border-t border-ink/30 sm:grid-cols-2 lg:grid-cols-5">
           {values.map((v, i) => (
             <li key={v.title} className="border-b border-ink/15 py-6 pr-6 lg:border-b-0 lg:border-r lg:pl-6 lg:first:pl-0 lg:last:border-r-0">
-              <span className="label text-copper-dark">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="display mt-3 text-xl normal-case">{v.title}</h3>
-              <p className="mt-2 text-ink/75">{v.text}</p>
+              <Reveal delay={i * 0.07} y={16}>
+                <span className="label text-copper-dark">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="display mt-3 text-xl normal-case">{v.title}</h3>
+                <p className="mt-2 text-ink/75">{v.text}</p>
+              </Reveal>
             </li>
           ))}
         </ul>
@@ -100,9 +102,11 @@ export default function About() {
             <ul className="grid gap-px bg-white/15 sm:grid-cols-2 md:col-span-7">
               {rest.map((m) => (
                 <li key={m.name} className="bg-navy-deep p-6">
-                  <p className="display text-xl normal-case">{m.name}</p>
-                  <p className="label mt-2 text-copper">{m.role}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-white/65">{m.bio}</p>
+                  <Reveal y={14}>
+                    <p className="display text-xl normal-case">{m.name}</p>
+                    <p className="label mt-2 text-copper">{m.role}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-white/65">{m.bio}</p>
+                  </Reveal>
                 </li>
               ))}
             </ul>

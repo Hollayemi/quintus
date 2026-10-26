@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { categories, works, type Category } from "@/config/images";
@@ -62,8 +63,16 @@ export function Gallery() {
       </div>
 
       <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4">
+        <AnimatePresence mode="popLayout" initial={false}>
         {list.map((w, i) => (
-          <li key={w.id}>
+          <motion.li
+            key={w.id}
+            layout
+            initial={{ opacity: 0, y: 24, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.97 }}
+            transition={{ duration: 0.55, delay: Math.min(i, 8) * 0.04, ease: [0.2, 0.7, 0.2, 1] }}
+          >
             <button
               type="button"
               className="group block w-full text-left"
@@ -89,8 +98,9 @@ export function Gallery() {
                 <span className="mt-1 block text-[0.95rem] font-medium leading-snug">{w.title}</span>
               </span>
             </button>
-          </li>
+          </motion.li>
         ))}
+        </AnimatePresence>
       </ul>
 
       {current && (

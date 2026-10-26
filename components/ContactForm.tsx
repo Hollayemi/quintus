@@ -73,7 +73,7 @@ export function ContactForm() {
         />
       </label>
       <div className="sm:col-span-2">
-        <button type="submit" className="bg-copper px-8 py-4 font-medium text-white transition-colors hover:bg-copper-dark">
+        <button type="submit" className="btn btn-copper">
           Send enquiry
         </button>
         <p className="mt-4 text-sm text-muted" aria-live="polite">

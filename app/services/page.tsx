@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
+import { Btn, ImageReveal, Reveal } from "@/components/motion";
 import { PageHead } from "@/components/PageHead";
 import { Eyebrow } from "@/components/Section";
 import { images } from "@/config/images";
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 export default function Services() {
   return (
     <>
-      <PageHead eyebrow="Services" title="Six services. One accountable team.">
+      <PageHead eyebrow="Services" title="Six services. One accountable team." image={images.pageHero.services}>
         Engage us individually, or as a single design-and-build package from costing to
         handover.
       </PageHead>
@@ -22,17 +21,21 @@ export default function Services() {
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <ol className="border-t border-ink/30">
           {services.map((s) => (
-            <li key={s.n} className="grid gap-3 border-b border-ink/15 py-9 md:grid-cols-12 md:gap-8">
-              <span className="display text-5xl text-transparent [-webkit-text-stroke:1.2px_var(--navy)] md:col-span-2">{s.n}</span>
-              <h2 className="display text-3xl normal-case md:col-span-5">{s.title}</h2>
-              <p className="text-lg text-ink/75 md:col-span-5">{s.scope}</p>
+            <li key={s.n} className="border-b border-ink/15">
+              <Reveal y={18}>
+                <div className="grid gap-3 py-9 md:grid-cols-12 md:gap-8">
+                  <span className="display text-5xl text-transparent [-webkit-text-stroke:1.2px_var(--navy)] md:col-span-2">{s.n}</span>
+                  <h2 className="display text-3xl normal-case md:col-span-5">{s.title}</h2>
+                  <p className="text-lg text-ink/75 md:col-span-5">{s.scope}</p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ol>
       </section>
 
-      <div className="relative mx-auto aspect-[21/9] max-w-7xl overflow-hidden bg-paper-2 md:mx-6 xl:mx-auto">
-        <Image src={images.servicesBanner.src} alt={images.servicesBanner.alt} fill sizes="100vw" className="object-cover" />
+      <div className="mx-auto max-w-7xl md:px-6">
+        <ImageReveal src={images.servicesBanner.src} alt={images.servicesBanner.alt} sizes="100vw" className="aspect-[4/3] md:aspect-[21/9]" />
       </div>
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
@@ -83,15 +86,17 @@ export default function Services() {
       <section className="bg-navy-deep text-white">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <Eyebrow n="05" light>Sectors we serve</Eyebrow>
-          <ul className="mt-10 grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-3">
-            {sectors.map((s) => (
-              <li key={s.title} className="bg-navy-deep p-7">
-                <h3 className="display text-xl normal-case">{s.title}</h3>
-                <p className="mt-3 text-white/65">{s.text}</p>
+          <ul className="mt-10 grid gap-x-14 border-t border-white/25 md:grid-cols-2">
+            {sectors.map((s, i) => (
+              <li key={s.title} className="border-b border-white/15 py-6">
+                <Reveal delay={(i % 2) * 0.08} y={16}>
+                  <h3 className="display text-xl normal-case">{s.title}</h3>
+                  <p className="mt-2 text-white/65">{s.text}</p>
+                </Reveal>
               </li>
             ))}
           </ul>
-          <Link href="/contact" className="mt-12 inline-block bg-copper px-8 py-4 font-medium text-white hover:bg-copper-dark">Discuss your project</Link>
+          <div className="mt-12"><Btn href="/contact">Discuss your project</Btn></div>
         </div>
       </section>
     </>

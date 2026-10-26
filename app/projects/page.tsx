@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Btn } from "@/components/motion";
 import { Gallery } from "@/components/Gallery";
 import { PageHead } from "@/components/PageHead";
 import { Eyebrow } from "@/components/Section";
+import { images } from "@/config/images";
 import { register } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <>
-      <PageHead eyebrow="Projects" title="Work you can walk through.">
+      <PageHead eyebrow="Projects" title="Work you can walk through." image={images.pageHero.projects}>
         A sample of our buildings, interiors and site works. Full case studies and
         client references are available on request.
       </PageHead>
@@ -49,7 +50,7 @@ export default function Projects() {
               </tbody>
             </table>
           </div>
-          <Link href="/contact" className="link-u mt-10 inline-block font-medium text-navy">Request references →</Link>
+          <div className="mt-10"><Btn href="/contact" variant="navy">Request references</Btn></div>
         </div>
       </section>
     </>
