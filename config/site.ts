@@ -235,7 +235,7 @@ export const register = [
 export const team = [
   {
     name: "Ololade Yahaya",
-    role: "CEO & Founder",
+    role: "Managing Director",
     bio: "Seasoned civil and structural engineer with several years of hands-on experience in design implementation, project and construction management, customer relations and cost/budget planning. An expert in building technology, design and inspection.",
   },
   {
@@ -244,9 +244,9 @@ export const team = [
     bio: "Civil Engineering graduate of the University of Lagos with a Master's in Energy Futures from the University of Aberdeen. Certified PMP and Scrum Master, with experience across civil engineering, oil and gas, IT and the public sector.",
   },
   {
-    name: "Tope Aloko",
-    role: "Design & Estimation Manager",
-    bio: "Mechanical Engineering graduate of the University of Ibadan; member of the Nigerian Society of Engineers and COREN, and a certified project management professional with deep knowledge of costing, design and estimation.",
+    name: "Bisi Akinjide",
+    role: "ESTIMATION MANAGER/QUANTITY SURVEYOR",
+    bio: "Estimation Manager/Quantity Surveyor with expertise in construction cost estimation, preparation of Bills of Quantities (BOQ), project budgeting, cost control, tender preparation, and contract administration. Skilled in material take-offs, cost analysis, valuation of construction works, and variation assessment. Committed to ensuring accurate project costing, effective cost management, and budget compliance while maximizing profitability and delivering value across Quintus Projects Ltd.’s construction projects.",
   },
   {
     name: "Iyabo Atilola",
@@ -254,9 +254,9 @@ export const team = [
     bio: "HND, Federal Polytechnic Ilaro; associate member of ICAN. Over ten years in financial and management accounting, including as Finance Manager at Resort Securities and Trust Plc.",
   },
   {
-    name: "Blessing Edegware",
-    role: "Business Development Manager",
-    bio: "Chemistry graduate of Adekunle Ajasin University; member of the Chartered Institute of Stockbrokers. Eight years with financial institutions and over five years in business development at management level.",
+    name: "Samuel Akin-Jesu Adewole ",
+    role: "CIVIL ENGINEERING MANAGER",
+    bio: "Civil engineering professional with years of experience in construction supervision, site management, and project execution. He has worked on multi-storey commercial building projects across Nigeria. His expertise includes interpreting architectural and structural drawings, supervising site personnel, preparing work schedules, interpreting Bills of Quantities, coordinating with quantity surveyors, structural analysis and design, and enforcing health and safety standards. He holds a degree from the Federal University of Technology, Minna, with proficiency in AutoCAD, ProtaStructure, Orion, and Microsoft Project.",
   },
   {
     name: "Ayomiposi Fadojutimi",
@@ -264,9 +264,9 @@ export const team = [
     bio: "Mechanical engineering graduate of the University of Ado-Ekiti; member of NSE and COREN. Nine years in HVAC installation and maintenance, rural electrification, and generator installation and maintenance.",
   },
   {
-    name: "Funaya Okoh",
-    role: "Service Manager",
-    bio: "Electrical Engineering graduate of Rivers State University of Science and Technology, with broad experience in HVAC design, installation and maintenance and electrical works, across several engineering firms and facilities roles.",
+    name: "Ajibola Fakunle",
+    role: "PROCUREMENT MANAGER ",
+    bio: "Results-driven Procurement Manager with expertise in sourcing construction materials, negotiating with suppliers, managing vendor relationships, and ensuring timely, cost-effective procurement for construction projects. Skilled in cost control, inventory management, supplier evaluation, purchase order administration, and quality assurance. He is a graduate of University of Ilorin who is committed to maintaining procurement transparency, optimizing project budgets, and ensuring materials and equipment meet required specifications and delivery schedules to support efficient project execution.",
   },
 ];
 

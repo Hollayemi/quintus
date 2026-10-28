@@ -43,13 +43,7 @@ export default function About() {
             supervises and commissions, so clients deal with one accountable partner
             from start to finish.
           </p>
-          <p>
-            We started as a mechanical and electrical engineering company, working on
-            lighting, plumbing and HVAC for hospitals, hotels, shopping malls and event
-            centres. A few years later we added civil and structural works, and today
-            we are a full-fledged engineering company able to meet the whole range of a
-            client&apos;s engineering needs.
-          </p>
+          
           <p>
             We work for institutional, corporate, public and private clients across
             Nigeria, on new builds, renovations, fit-outs and infrastructure. Every
