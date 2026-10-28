@@ -1,12 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   experimental: {
     agentFeedback: true,
   },
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    // Placeholder stock photos (see config/images.ts). Remove once all photos are local.
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+  },
   turbopack: {
     rules: {
       "*.css": {
