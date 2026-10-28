@@ -20,7 +20,70 @@ export const local = (file: string) => `/images/${file}`;
 
 export type Photo = { src: string; alt: string };
 
+// Real project media added in /public/images/new (alias → file). Videos live beside the photos.
+export const NEW = {
+  "r-207f1a": "new/207f1a8f-5e60-4dcd-8b6e-4ef42effda1f.JPG",
+  "r-51e41e": "new/51e41ebc-06d3-4349-a693-c8ff32c8b135.JPG",
+  "r-5e4a25": "new/5e4a256a-6993-4e83-a7e4-018829bfd053.JPG",
+  "r-6de898": "new/6de8982e-955c-4b45-87ec-ce2c474c4ab5.JPG",
+  "r-b7dbce": "new/b7dbce29-d6d8-40a7-a188-ed6b19de533f.JPG",
+  "r-db3cae": "new/db3cae9a-f42c-47ca-97dd-0936184b61b1.JPG",
+  "r-f245cd": "new/f245cddd-e94c-41de-9c48-5effef71546e.JPG",
+  "hw-front-scaffold": "new/4379831e-7d80-4c29-af0a-3681954b0ed2.JPG",
+  "hw-corner-scaffold": "new/415c638b-6eb4-4d29-afef-3c6d9e27e0ab.JPG",
+  "hw-long-view": "new/05ab0bb0-0324-4cdf-a71f-abbf5a711288.JPG",
+  "hw-front-balconies": "new/95104866-7c3d-4ae5-a190-ca8d0cdc4fd3.JPG",
+  "hw-block-panels": "new/e319c448-0f96-450f-a3df-7585cede6473.JPG",
+  "hw-side-panels": "new/b08ef6dd-7ee7-49b4-bac3-b0ed8319182d.JPG",
+  "hw-end-scaffold": "new/df8d201e-13e0-4caf-89ce-8de2cb87bbba.JPG",
+  "hw-lawn-view": "new/446c52ae-8ec7-4b3c-a2cb-67ff0c1af104.JPG",
+  "hw-with-mast": "new/81f833c0-725f-4f79-b01b-a8fe4ff59bd3.JPG",
+  "hw-through-trees": "new/63d5af7b-b571-4b48-9bbc-df86b9015135.JPG",
+  "hw-wide": "new/d57a16c2-9370-44f7-a013-afce4c596dd4.JPG",
+  "hw-wide-2": "new/ed04a6aa-1a76-4787-9df2-d29d976d6b1b.JPG",
+  "hw-upper-floor": "new/f7e8e502-8849-4167-857b-c517d8fd0ef6.JPG",
+  "hw-wide-3": "new/fb330aa9-f387-4864-97b7-b5edc2d664ba.JPG",
+  "hy-front": "new/01cb229b-76e2-4586-9b1f-84dd11817e7f.JPG",
+  "hy-corner": "new/1615bea5-0243-4099-9f37-ad9a2c74c867.JPG",
+  "hy-end": "new/e9b8344a-5672-4d5c-9794-0f31920531d0.JPG",
+  "hy-doors": "new/fc078d39-0e7a-4e75-a1df-324abaf974ad.JPG",
+  "hy-corridor": "new/7196bb06-b1a2-401f-a3a8-012c7ee1013b.JPG",
+  "hy-team": "new/a6f406dc-f669-404d-aca2-2e03d258ba34.JPG",
+  "hy-washroom": "new/fcf630ad-d7f7-472c-971a-37584ec41f47.JPG",
+  "hy-inspect-1": "new/2b970f5a-4df5-4350-a657-eb11ff69041e.JPG",
+  "hy-inspect-2": "new/30cf3dcc-5186-427a-b9c0-f2c4aa5ab8ea.JPG",
+  "hy-inspect-3": "new/8936324f-f97b-4b12-8c3c-43ec98ae5619.JPG",
+  "hy-inspect-4": "new/9a9e4429-cb3e-42c2-afb8-2e5c5b2e7e25.JPG",
+  "hy-measure": "new/c8564941-2127-4f7b-88b6-e9cca2d667ac.JPG",
+  "v-64910aeb": "new/64910aeb-36c3-4099-9685-edbb13c2990a.MP4",
+  "v-9b4bf266": "new/9b4bf266-17ab-4d8d-97db-1a945aee2a3c.MP4",
+  "v-dbe0a8b7": "new/dbe0a8b7-00a7-4cdd-9411-0f893787adbc.MP4",
+  "v-c4e2152a": "new/c4e2152a-c87f-42dd-8389-4e8e52407363.MP4",
+  "v-ec6328e4": "new/ec6328e4-847a-416e-bc93-af72739f15fb.MP4",
+  "v-89ff8966": "new/89ff8966-a4cf-4418-a3f9-5d79288329fe.MP4",
+} as const;
+
+/** Poster frames for the videos (made with ffmpeg). */
+const poster = (k: string) => local(`new/posters/${k}.jpg`);
+const nw = (k: keyof typeof NEW) => local(NEW[k]);
+
 /** Real project media: Pinnacle Oil tank-farm works (Projects page case study). */
+export const caseMedia = {
+  hostel: {
+    video: { src: nw("v-c4e2152a"), poster: poster("c4e2152a"), label: "Finished hostel blocks, Benin", aspect: "landscape" as const },
+    photos: ["h-white-front", "h-inspect", "h-corridor", "h-white-panels"],
+  },
+  roads: {
+    video: { src: nw("v-64910aeb"), poster: poster("64910aeb"), label: "Grading the road formation, Lekki", aspect: "portrait" as const },
+    photos: ["r-5e4a25", "r-b7dbce", "r-207f1a", "r-db3cae"],
+  },
+  tankFarm: {
+    video: { src: local("vid1.mp4"), poster: local("vid1-poster.jpg"), label: "Cutting joint filler on a tank-farm slab", aspect: "portrait" as const },
+    photos: ["t-rebar", "t-pour", "t-slab", "t-pipework"],
+  },
+};
+
+/** @deprecated kept for older imports */
 export const tankFarm = {
   video: {
     src: local("vid1.mp4"),
@@ -77,8 +140,8 @@ export const images = {
   ],
   /** About page, wide banner (below the hero) */
   aboutBanner: {
-    src: local("image4.jpeg"),
-    alt: "Concrete slab poured between a storage-tank wall and a bund wall",
+    src: nw("hw-block-panels"),
+    alt: "Two-storey hostel block with decorative block panels, ahead of handover",
   },
   /** About page, side image */
   aboutSide: {
@@ -93,16 +156,16 @@ export const images = {
   /** Sub-page hero backgrounds (full-bleed, darkened automatically) */
   pageHero: {
     about: {
-      src: unsplash("1599995903128-531fc7fb694b", 2400),
-      alt: "Construction cranes over a building site with concrete foundations at low sun",
+      src: nw("hy-team"),
+      alt: "Quintus staff and Army personnel standing together outside a finished hostel block",
     },
     services: {
       src: unsplash("1535732759880-bbd5c7265e3f", 2400),
       alt: "Tower crane seen from below",
     },
     projects: {
-      src: unsplash("1580587771525-78b9dba3b914", 2400),
-      alt: "Contemporary concrete villa under a blue sky",
+      src: nw("hy-front"),
+      alt: "Long yellow hostel block with a dark pitched roof",
     },
     contact: {
       src: unsplash("1608303588026-884930af2559", 2400),
@@ -122,13 +185,13 @@ export const sectorImages: Record<string, Photo> = {
   commercial: { src: unsplash("1565008447742-97f6f38c985c", 1400), alt: "Tall commercial buildings under a cloudy blue sky" },
   industrial: { src: local("image3.jpeg"), alt: "Large-diameter pipes crossing a concrete bund wall beside storage tanks" },
   healthcare: { src: unsplash("1586773860418-d37222d8fce3", 1400), alt: "Concrete healthcare building under a blue sky" },
-  education: { src: unsplash("1705810591530-02053b1a9954", 1400), alt: "School building with a sports court in front" },
+  education: { src: nw("hw-lawn-view"), alt: "Two-storey hostel block under finishing, seen across the lawn" },
   faith: { src: unsplash("1555696958-c5049b866f6f", 1400), alt: "Brown concrete church building" },
   infrastructure: { src: unsplash("1562033291-d09c5d4cb8cc", 1400), alt: "Grey concrete flyover" },
 };
 
 // ── Project gallery (Projects page + Home "Selected work") ───────────────────
-export type Category = "exterior" | "interior" | "site" | "industrial";
+export type Category = "exterior" | "interior" | "site" | "industrial" | "roads" | "hostel";
 
 export type Work = Photo & {
   id: string;
@@ -142,6 +205,8 @@ export const categories: { key: "all" | Category; label: string }[] = [
   { key: "exterior", label: "Buildings" },
   { key: "interior", label: "Interiors & finishes" },
   { key: "site", label: "Structure & site" },
+  { key: "hostel", label: "Army hostel, Benin" },
+  { key: "roads", label: "Roads & drainage" },
   { key: "industrial", label: "Industrial & tank farm" },
 ];
 
@@ -154,16 +219,42 @@ const w = (
 ): Work => ({ id, src: unsplash(photo, 900), alt: `${title}. ${note}`, category, title, note });
 
 // Real project photo: file in /public/images
-const r = (id: string, file: string, title: string, note: string): Work => ({
+const real = (category: Category) => (id: string, file: string, title: string, note: string): Work => ({
   id,
   src: local(file),
   alt: `${title}. ${note}`,
-  category: "industrial",
+  category,
   title,
   note,
 });
+const r = real("industrial");
 
 export const works: Work[] = [
+  // Army Training School hostel, Benin (real photos)
+  real("hostel")("h-front", NEW["hy-front"], "Finished accommodation block", "Completed single-storey block with yellow render, navy plinth band and dark pitched roof."),
+  real("hostel")("h-corner", NEW["hy-corner"], "Block corner and roof line", "Deep eaves, rainwater goods and a clean plinth detail along the block."),
+  real("hostel")("h-end", NEW["hy-end"], "Block end elevation", "Corridor veranda and windows along the long side of the block."),
+  real("hostel")("h-doors", NEW["hy-doors"], "Room doors and windows", "Rows of rooms with steel doors and casement windows."),
+  real("hostel")("h-corridor", NEW["hy-corridor"], "Covered corridor", "Veranda circulation with timber-effect floor, serving the rooms."),
+  real("hostel")("h-white-front", NEW["hw-front-balconies"], "Two-storey officers' block", "Two-storey block with balconies, scaffolding still up for finishes."),
+  real("hostel")("h-white-long", NEW["hw-long-view"], "Long elevation under finishing", "The full length of the two-storey block seen from the lawn."),
+  real("hostel")("h-white-panels", NEW["hw-block-panels"], "Block-panel feature wall", "Decorative perforated block panels in the stairwell wall."),
+  real("hostel")("h-white-corner", NEW["hw-corner-scaffold"], "Corner under scaffold", "Bamboo scaffold access for plastering and painting."),
+  real("hostel")("h-white-wide", NEW["hw-wide"], "Block seen across the grounds", "Landscaped grounds ahead of handover."),
+  real("hostel")("h-inspect", NEW["hy-inspect-1"], "Client site inspection", "Army personnel and the project team walking the completed blocks."),
+  real("hostel")("h-measure", NEW["hy-measure"], "Measuring up on site", "Team measuring external works with a measuring wheel."),
+  real("hostel")("h-team", NEW["hy-team"], "Project and client team", "Quintus staff and Army personnel outside the block."),
+  real("hostel")("h-washroom", NEW["hy-washroom"], "Washroom fit-out", "Row of wash basins in a tiled washroom."),
+
+  // Alphamead Development Company, Lekki: road and drainage (real photos)
+  real("roads")("r-207f1a", NEW["r-207f1a"], "Kerb laying beside the wall", "Branded crew setting a precast kerb along the carriageway edge."),
+  real("roads")("r-51e41e", NEW["r-51e41e"], "Kerb alignment", "Checking line and level as kerbs go down."),
+  real("roads")("r-5e4a25", NEW["r-5e4a25"], "Drainage channel laying", "Precast channel units being lowered into place."),
+  real("roads")("r-6de898", NEW["r-6de898"], "Loading kerbs", "Precast units unloaded from the truck on site."),
+  real("roads")("r-b7dbce", NEW["r-b7dbce"], "Channel run", "Drainage channel laid straight along the road edge."),
+  real("roads")("r-db3cae", NEW["r-db3cae"], "Site supervision", "Crew member supervising kerb and channel works."),
+  real("roads")("r-f245cd", NEW["r-f245cd"], "Setting out", "Setting out kerb positions before laying."),
+
   // Industrial & tank farm (real project photos from /public/images)
   r("t-pipework", "image1.jpeg", "Pipework on a concrete pad", "Process pipework laid across a reinforced concrete pad beside a storage tank."),
   r("t-corridor", "image2.jpeg", "Pipe corridor", "Parallel pipelines on supports over a concrete base, with flow arrows marked."),

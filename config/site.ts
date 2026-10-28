@@ -196,8 +196,8 @@ export const register = [
     scope: "Remodelling and renovation works",
   },
   {
-    project: "56-room hostel for Army officers",
-    client: "Nigerian Army",
+    project: "56-room officers' hostel",
+    client: "Nigerian Army Training School",
     sector: "Institutional",
     location: "Benin",
     scope: "Built a 56-room, ultra-modern hostel",
@@ -215,6 +215,13 @@ export const register = [
     sector: "Industrial",
     location: "Lekki Free Trade Zone",
     scope: "Gantry construction",
+  },
+  {
+    project: "Road and drainage construction works",
+    client: "Alphamead Development Company",
+    sector: "Civil",
+    location: "Lekki, Lagos",
+    scope: "Road formation, precast kerbs and drainage channels",
   },
   {
     project: "16 three-bedroom terraces",
@@ -263,16 +270,40 @@ export const team = [
   },
 ];
 
-// Projects page case study. CONFIRM: client/location wording against the project file
-// (the video shows Pinnacle-branded tanks; the register lists Pinnacle Oil, Lekki Free Trade Zone).
-export const caseStudy = {
-  eyebrow: "Case study",
-  title: "Tank-farm civil works for Pinnacle Oil",
-  text: "Reinforced concrete bases, bund slabs and pipe corridors built inside a tank farm: mesh laid and checked, concrete placed against formwork, joints cut and finished, and pipework supported on the finished slab.",
-  facts: [
-    ["Client", "Pinnacle Oil"],
-    ["Sector", "Industrial"],
-    ["Location", "Lekki Free Trade Zone"],
-    ["Works", "Slabs, bunds, pipe corridors"],
-  ] as [string, string][],
-};
+// Projects page case studies. Media for each lives in config/images.ts (caseMedia).
+// CONFIRM: wording against the project files.
+export const caseStudies = [
+  {
+    key: "hostel" as const,
+    title: "56-room officers' hostel, Nigerian Army Training School",
+    text: "Accommodation blocks for 56 officers' rooms, taken from structure through plastering, painting and external works, with the client's team walking the site and inspecting progress.",
+    facts: [
+      ["Client", "Nigerian Army Training School"],
+      ["Sector", "Institutional"],
+      ["Location", "Benin"],
+      ["Works", "56-room hostel"],
+    ] as [string, string][],
+  },
+  {
+    key: "roads" as const,
+    title: "Road and drainage works for Alphamead Development Company",
+    text: "Road and drainage construction for a development in Lekki: the road formation graded with a motor grader, then precast kerbs and drainage channels laid along the carriageway edge by our branded crew.",
+    facts: [
+      ["Client", "Alphamead Development Company"],
+      ["Sector", "Civil"],
+      ["Location", "Lekki, Lagos"],
+      ["Works", "Road and drainage"],
+    ] as [string, string][],
+  },
+  {
+    key: "tankFarm" as const,
+    title: "Tank-farm civil works for Pinnacle Oil",
+    text: "Reinforced concrete bases, bund slabs and pipe corridors built inside a tank farm: mesh laid and checked, concrete placed against formwork, joints cut and finished, and pipework supported on the finished slab.",
+    facts: [
+      ["Client", "Pinnacle Oil"],
+      ["Sector", "Industrial"],
+      ["Location", "Lekki Free Trade Zone"],
+      ["Works", "Slabs, bunds, pipe corridors"],
+    ] as [string, string][],
+  },
+];

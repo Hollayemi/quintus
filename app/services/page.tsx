@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Btn, ImageReveal, Reveal } from "@/components/motion";
 import { PageHead } from "@/components/PageHead";
 import { Eyebrow } from "@/components/Section";
-import { images } from "@/config/images";
+import { byId, images } from "@/config/images";
 import { disciplines, process, qhse, sectors, services } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -38,8 +38,26 @@ export default function Services() {
         <ImageReveal src={images.servicesBanner.src} alt={images.servicesBanner.alt} sizes="100vw" className="aspect-[4/3] md:aspect-[21/9]" />
       </div>
 
+      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-28">
+        <Reveal>
+          <Eyebrow n="02">In the field</Eyebrow>
+          <h2 className="display mt-6 max-w-3xl text-4xl md:text-5xl">Roads, drainage and buildings, delivered by our own crews.</h2>
+        </Reveal>
+        <ul className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {["r-5e4a25", "r-b7dbce", "h-white-long", "t-bund"].map((id, i) => {
+            const w = byId(id);
+            return (
+              <li key={id}>
+                <ImageReveal src={w.src} alt={w.alt} sizes="(min-width:768px) 25vw, 50vw" delay={i * 0.1} className="aspect-[4/5]" />
+                <p className="label mt-2 text-muted">{w.title}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-        <Eyebrow n="02">Engineering disciplines</Eyebrow>
+        <Eyebrow n="03">Engineering disciplines</Eyebrow>
         <h2 className="display mt-6 max-w-3xl text-4xl md:text-5xl">A full-fledged engineering company, not just a contractor.</h2>
         <ul className="mt-10 flex flex-wrap gap-3">
           {disciplines.map((d) => (
@@ -50,7 +68,7 @@ export default function Services() {
 
       <section className="border-y border-line bg-paper-2">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <Eyebrow n="03">How we work</Eyebrow>
+          <Eyebrow n="04">How we work</Eyebrow>
           <ol className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {process.map((p, i) => (
               <li key={p.title} className="border-t-2 border-ink pt-5">
@@ -64,7 +82,7 @@ export default function Services() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-        <Eyebrow n="04">Quality, health, safety & environment</Eyebrow>
+        <Eyebrow n="05">Quality, health, safety & environment</Eyebrow>
         <p className="display mt-6 max-w-3xl text-3xl normal-case md:text-4xl">Planned into every project, not inspected in at the end.</p>
         <div className="mt-12 grid gap-10 md:grid-cols-3">
           {qhse.map((g) => (
@@ -85,7 +103,7 @@ export default function Services() {
 
       <section className="bg-navy-deep text-white">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <Eyebrow n="05" light>Sectors we serve</Eyebrow>
+          <Eyebrow n="06" light>Sectors we serve</Eyebrow>
           <ul className="mt-10 grid gap-x-14 border-t border-white/25 md:grid-cols-2">
             {sectors.map((s, i) => (
               <li key={s.title} className="border-b border-white/15 py-6">

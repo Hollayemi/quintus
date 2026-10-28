@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Btn, ImageReveal, Reveal } from "@/components/motion";
-import { LoopVideo } from "@/components/LoopVideo";
+import { Btn, Reveal } from "@/components/motion";
+import { CaseStudy } from "@/components/CaseStudy";
 import { Gallery } from "@/components/Gallery";
 import { PageHead } from "@/components/PageHead";
 import { Eyebrow } from "@/components/Section";
-import { byId, images, tankFarm } from "@/config/images";
-import { caseStudy, register } from "@/config/site";
+import { images } from "@/config/images";
+import { caseStudies, register } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -20,47 +20,12 @@ export default function Projects() {
         client references are available on request.
       </PageHead>
 
-      <section className="mx-auto max-w-7xl px-6 pt-16 md:pt-24">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-14">
-          <Reveal className="md:col-span-4">
-            <LoopVideo
-              src={tankFarm.video.src}
-              poster={tankFarm.video.poster}
-              label={tankFarm.video.label}
-              className="aspect-[9/16] max-h-[40rem] w-full"
-            />
-          </Reveal>
-          <div className="md:col-span-8">
-            <Reveal>
-              <Eyebrow n="01">{caseStudy.eyebrow}</Eyebrow>
-              <h2 className="display mt-6 text-3xl md:text-5xl">{caseStudy.title}</h2>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/80">{caseStudy.text}</p>
-            </Reveal>
-            <dl className="mt-8 grid grid-cols-2 gap-x-8 border-t border-ink/30 sm:grid-cols-4">
-              {caseStudy.facts.map(([k, v]) => (
-                <div key={k} className="border-b border-ink/15 py-4">
-                  <dt className="label text-muted">{k}</dt>
-                  <dd className="mt-1 font-medium">{v}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              {["t-rebar", "t-pour", "t-slab", "t-pipework"].map((id, i) => {
-                const w = byId(id);
-                return (
-                  <figure key={id}>
-                    <ImageReveal src={w.src} alt={w.alt} sizes="(min-width:768px) 30vw, 50vw" delay={i * 0.1} className="aspect-[4/3]" />
-                    <figcaption className="label mt-2 text-muted">{w.title}</figcaption>
-                  </figure>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+      {caseStudies.map((c, i) => (
+        <CaseStudy key={c.key} study={c} n={i + 1} flip={i % 2 === 1} />
+      ))}
 
       <section className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <Reveal><Eyebrow n="02">All work</Eyebrow></Reveal>
+        <Reveal><Eyebrow n="All">Gallery</Eyebrow></Reveal>
         <div className="mt-8"><Gallery /></div>
       </section>
 
