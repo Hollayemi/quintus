@@ -185,6 +185,7 @@ export function Btn({
   delay = 0,
   arrow = true,
   className = "",
+  innerClass = ""
 }: {
   href: string;
   children: React.ReactNode;
@@ -192,18 +193,19 @@ export function Btn({
   delay?: number;
   arrow?: boolean;
   className?: string;
+  innerClass?: string
 }) {
   const rm = useReducedMotion();
   return (
     <motion.span
-      className={`inline-block ${className}`}
+      className={`inline-block px-0! ${className}`}
       initial={rm ? false : { clipPath: "inset(0 100% 0 0)", opacity: 0 }}
       whileInView={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: WIPE }}
     >
       <motion.span whileTap={{ scale: 0.97 }} className="inline-block">
-        <Link href={href} className={`btn btn-${variant}`}>
+        <Link href={href} className={`btn btn-${variant} ${innerClass}`}>
           <span>{children}</span>
           {arrow && (
             <svg className="arrow" width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Quintus Projects",
     description: site.tagline,
     type: "website",
-    images: [images.hero.src],
+    images: [images.aboutBanner.src],
   },
 };
 

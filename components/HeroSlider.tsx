@@ -21,8 +21,7 @@ export function HeroSlider() {
   }, [i, rm]);
 
   return (
-    <section className="relative isolate flex min-h-[34rem] items-center overflow-hidden bg-navy-deep text-white md:h-[calc(100svh-7.4rem)] md:max-h-[58rem]">
-      {/* Background: whole stage is wiped open on load, slides crossfade with a slow zoom */}
+    <section className="relative isolate flex min-h-[90vh] items-center overflow-hidden bg-navy-deep text-white md:h-[calc(100svh-7.4rem)] md:max-h-[58rem]">
       <motion.div
         className="absolute inset-0 -z-10"
         initial={rm ? false : { clipPath: "inset(100% 0 0 0)" }}
@@ -57,22 +56,22 @@ export function HeroSlider() {
 
       <div className="mx-auto w-full max-w-7xl px-6 py-20 md:py-0">
         <Reveal y={10} delay={0.5}>
-          <p className="label text-white/75">Civil · Structural · Building works — Lagos, Nigeria</p>
+          <p className="text-xs! label text-white/75">Civil · Structural · Building works — Lagos, Nigeria</p>
         </Reveal>
-        <h1 className="display mt-7 text-[2.9rem] sm:text-6xl lg:text-[4.8rem] xl:text-[5.6rem]">
+        <h1 className="display mt-7 text-[2.3rem] sm:text-6xl lg:text-[4.8rem] xl:text-[5.6rem]">
           <LineReveal delay={0.7}>Engineered, built</LineReveal>
           <LineReveal delay={0.82}>and handed over</LineReveal>
           <LineReveal delay={0.94} className="text-copper">as promised.</LineReveal>
         </h1>
         <Reveal delay={1.25} y={16}>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/85">
+          <p className="mt-7 max-w-xl text-sm md:text-lg leading-relaxed text-white/85">
             {site.legalName} takes projects from concept to handover, on time, within
             budget and to specification.
           </p>
         </Reveal>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Btn href="/projects" delay={1.45}>See our work</Btn>
-          <Btn href="/contact" variant="outline" delay={1.57} arrow={false}>Request a quote</Btn>
+        <div className="mt-10 flex flex- gap-4">
+          <Btn href="/projects" innerClass="px-4!" delay={1.45}>See our work</Btn>
+          <Btn href="/contact" variant="outline" innerClass="p-4!" delay={1.57} arrow={false}>Request a quote</Btn>
         </div>
       </div>
 
