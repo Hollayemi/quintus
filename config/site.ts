@@ -262,3 +262,17 @@ export const team = [
     bio: "Electrical Engineering graduate of Rivers State University of Science and Technology, with broad experience in HVAC design, installation and maintenance and electrical works, across several engineering firms and facilities roles.",
   },
 ];
+
+// Projects page case study. CONFIRM: client/location wording against the project file
+// (the video shows Pinnacle-branded tanks; the register lists Pinnacle Oil, Lekki Free Trade Zone).
+export const caseStudy = {
+  eyebrow: "Case study",
+  title: "Tank-farm civil works for Pinnacle Oil",
+  text: "Reinforced concrete bases, bund slabs and pipe corridors built inside a tank farm: mesh laid and checked, concrete placed against formwork, joints cut and finished, and pipework supported on the finished slab.",
+  facts: [
+    ["Client", "Pinnacle Oil"],
+    ["Sector", "Industrial"],
+    ["Location", "Lekki Free Trade Zone"],
+    ["Works", "Slabs, bunds, pipe corridors"],
+  ] as [string, string][],
+};

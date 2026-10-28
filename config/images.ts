@@ -15,7 +15,19 @@ const UNSPLASH = "https://images.unsplash.com/photo-";
 export const unsplash = (id: string, width = 1200) =>
   `${UNSPLASH}${id}?auto=format&fit=crop&w=${width}&q=75`;
 
+/** Your own photos/videos live in /public/images. Reference them by file name. */
+export const local = (file: string) => `/images/${file}`;
+
 export type Photo = { src: string; alt: string };
+
+/** Real project media: Pinnacle Oil tank-farm works (Projects page case study). */
+export const tankFarm = {
+  video: {
+    src: local("vid1.mp4"),
+    poster: local("vid1-poster.jpg"),
+    label: "Cutting joint filler on a tank-farm slab",
+  },
+};
 
 /** Home hero background slideshow. Add, remove or reorder freely (landscape photos work best). */
 export const heroSlides: (Photo & { label: string })[] = [
@@ -53,20 +65,20 @@ export const images = {
       caption: "Steel frame erection",
     },
     {
-      src: unsplash("1768677903496-becc4be07258", 1000),
-      alt: "Construction worker inspecting rebar on a building site",
-      caption: "Rebar inspection before every pour",
+      src: local("image7.jpeg"),
+      alt: "Reinforcement mesh laid over compacted stone while the crew prepares a concrete pour",
+      caption: "Reinforcement checked before every pour",
     },
     {
-      src: unsplash("1444847840129-0ac27946a0a7", 1000),
-      alt: "Scaffolding against a building under construction",
-      caption: "Scaffold access to upper floors",
+      src: local("image6.jpeg"),
+      alt: "Fresh concrete placed against timber formwork, with pipework above",
+      caption: "Concrete placed in formwork",
     },
   ],
   /** About page, wide banner (below the hero) */
   aboutBanner: {
-    src: unsplash("1774931363306-5a896cd4dd02", 2000),
-    alt: "Construction workers pouring concrete on a sunny day",
+    src: local("image4.jpeg"),
+    alt: "Concrete slab poured between a storage-tank wall and a bund wall",
   },
   /** About page, side image */
   aboutSide: {
@@ -75,8 +87,8 @@ export const images = {
   },
   /** Services page, banner */
   servicesBanner: {
-    src: unsplash("1541888946425-d81bb19240f5", 2000),
-    alt: "Construction workers standing together on site",
+    src: local("image2.jpeg"),
+    alt: "Parallel process pipelines running across a reinforced concrete base",
   },
   /** Sub-page hero backgrounds (full-bleed, darkened automatically) */
   pageHero: {
@@ -108,7 +120,7 @@ export const images = {
 export const sectorImages: Record<string, Photo> = {
   residential: { src: unsplash("1721815693498-cc28507c0ba2", 1400), alt: "Two-storey house with balconies and large windows" },
   commercial: { src: unsplash("1565008447742-97f6f38c985c", 1400), alt: "Tall commercial buildings under a cloudy blue sky" },
-  industrial: { src: unsplash("1627052428109-576e839d100a", 1400), alt: "Tall metal silos with ladders against a clear sky" },
+  industrial: { src: local("image3.jpeg"), alt: "Large-diameter pipes crossing a concrete bund wall beside storage tanks" },
   healthcare: { src: unsplash("1586773860418-d37222d8fce3", 1400), alt: "Concrete healthcare building under a blue sky" },
   education: { src: unsplash("1705810591530-02053b1a9954", 1400), alt: "School building with a sports court in front" },
   faith: { src: unsplash("1555696958-c5049b866f6f", 1400), alt: "Brown concrete church building" },
@@ -116,7 +128,7 @@ export const sectorImages: Record<string, Photo> = {
 };
 
 // ── Project gallery (Projects page + Home "Selected work") ───────────────────
-export type Category = "exterior" | "interior" | "site";
+export type Category = "exterior" | "interior" | "site" | "industrial";
 
 export type Work = Photo & {
   id: string;
@@ -130,6 +142,7 @@ export const categories: { key: "all" | Category; label: string }[] = [
   { key: "exterior", label: "Buildings" },
   { key: "interior", label: "Interiors & finishes" },
   { key: "site", label: "Structure & site" },
+  { key: "industrial", label: "Industrial & tank farm" },
 ];
 
 const w = (
@@ -140,7 +153,26 @@ const w = (
   note: string,
 ): Work => ({ id, src: unsplash(photo, 900), alt: `${title}. ${note}`, category, title, note });
 
+// Real project photo: file in /public/images
+const r = (id: string, file: string, title: string, note: string): Work => ({
+  id,
+  src: local(file),
+  alt: `${title}. ${note}`,
+  category: "industrial",
+  title,
+  note,
+});
+
 export const works: Work[] = [
+  // Industrial & tank farm (real project photos from /public/images)
+  r("t-pipework", "image1.jpeg", "Pipework on a concrete pad", "Process pipework laid across a reinforced concrete pad beside a storage tank."),
+  r("t-corridor", "image2.jpeg", "Pipe corridor", "Parallel pipelines on supports over a concrete base, with flow arrows marked."),
+  r("t-bund", "image3.jpeg", "Lines crossing the bund", "Large-diameter pipes passing through a concrete bund with tanks beyond."),
+  r("t-slab", "image4.jpeg", "Slab between tank and bund wall", "Freshly finished slab with reinforcement mesh exposed at the edge."),
+  r("t-corridor-wide", "image5.jpeg", "Pipe corridor, wide view", "The same corridor from a lower angle, running toward the tank shells."),
+  r("t-pour", "image6.jpeg", "Concrete placement", "Fresh concrete placed against timber formwork, pipework above."),
+  r("t-rebar", "image7.jpeg", "Reinforcement before the pour", "Rebar mesh over compacted stone as the crew prepares the next pour."),
+
   // Buildings
   w("b-concrete-timber", "1613490493576-7fde63acd811", "exterior", "Concrete and timber residence", "Board-marked concrete massing with timber detailing."),
   w("b-villa", "1580587771525-78b9dba3b914", "exterior", "Contemporary villa", "Stepped concrete volumes under open sky."),
