@@ -44,7 +44,7 @@ export default function Services() {
           <h2 className="display mt-6 max-w-3xl text-4xl md:text-5xl">Roads, drainage and buildings, delivered by our own crews.</h2>
         </Reveal>
         <ul className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
-          {["r-5e4a25", "r-b7dbce", "h-white-long", "t-bund"].map((id, i) => {
+          {["r-5e4a25", "r-b7dbce", "h-officers-row", "t-bund"].map((id, i) => {
             const w = byId(id);
             return (
               <li key={id}>

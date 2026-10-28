@@ -6,7 +6,7 @@ import { SectorShowcase } from "@/components/SectorShowcase";
 import { process, services, whyUs } from "@/config/site";
 import { byId, images } from "@/config/images";
 
-const featured = ["r-5e4a25", "h-white-front", "t-pour", "h-front", "t-slab"].map(byId);
+const featured = ["r-5e4a25", "h-officers-entrance", "t-pour", "h-officers-row", "t-slab"].map(byId);
 const tag = { exterior: "Building", interior: "Interior", site: "Structure & site", industrial: "Tank farm", roads: "Roads & drainage", hostel: "Army hostel" } as const;
 
 export default function Home() {

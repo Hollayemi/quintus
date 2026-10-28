@@ -63,6 +63,17 @@ export const NEW = {
   "v-89ff8966": "new/89ff8966-a4cf-4418-a3f9-5d79288329fe.MP4",
 } as const;
 
+// Finished officers' hostel photos added in /public/images/important
+export const IMP = {
+  "officers-finished": "important/177afe95-186e-4489-bd91-a4f56cd2d5d5.JPG",
+  "officers-handover": "important/3f82a515-0fc8-4e07-81a4-b14fe8e5ee3e.JPG",
+  "officers-row": "important/80a501da-eb6f-4613-b5be-9e6e2a57935d.JPG",
+  "officers-forecourt": "important/cc0b2808-9315-47d0-8ee6-696f1d558e94.JPG",
+  "officers-entrance": "important/f52f6f59-f4eb-4051-b98d-35ef741a8298.JPG",
+  "officers-road": "important/hostel-road-crop.jpg",
+} as const;
+const im = (k: keyof typeof IMP) => local(IMP[k]);
+
 /** Poster frames for the videos (made with ffmpeg). */
 const poster = (k: string) => local(`new/posters/${k}.jpg`);
 const nw = (k: keyof typeof NEW) => local(NEW[k]);
@@ -71,7 +82,7 @@ const nw = (k: keyof typeof NEW) => local(NEW[k]);
 export const caseMedia = {
   hostel: {
     video: { src: nw("v-c4e2152a"), poster: poster("c4e2152a"), label: "Finished hostel blocks, Benin", aspect: "landscape" as const },
-    photos: ["h-white-front", "h-inspect", "h-corridor", "h-white-panels"],
+    photos: ["h-officers-finished", "h-officers-handover", "h-officers-entrance", "h-white-panels"],
   },
   roads: {
     video: { src: nw("v-64910aeb"), poster: poster("64910aeb"), label: "Grading the road formation, Lekki", aspect: "portrait" as const },
@@ -140,8 +151,8 @@ export const images = {
   ],
   /** About page, wide banner (below the hero) */
   aboutBanner: {
-    src: nw("hw-block-panels"),
-    alt: "Two-storey hostel block with decorative block panels, ahead of handover",
+    src: im("officers-row"),
+    alt: "Stepped two-storey hostel blocks with Army personnel on the forecourt",
   },
   /** About page, side image */
   aboutSide: {
@@ -164,8 +175,8 @@ export const images = {
       alt: "Tower crane seen from below",
     },
     projects: {
-      src: nw("hy-front"),
-      alt: "Long yellow hostel block with a dark pitched roof",
+      src: im("officers-finished"),
+      alt: "Completed two-storey officers' hostel with balconies",
     },
     contact: {
       src: unsplash("1608303588026-884930af2559", 2400),
@@ -185,7 +196,7 @@ export const sectorImages: Record<string, Photo> = {
   commercial: { src: unsplash("1565008447742-97f6f38c985c", 1400), alt: "Tall commercial buildings under a cloudy blue sky" },
   industrial: { src: local("image3.jpeg"), alt: "Large-diameter pipes crossing a concrete bund wall beside storage tanks" },
   healthcare: { src: unsplash("1586773860418-d37222d8fce3", 1400), alt: "Concrete healthcare building under a blue sky" },
-  education: { src: nw("hw-lawn-view"), alt: "Two-storey hostel block under finishing, seen across the lawn" },
+  education: { src: im("officers-finished"), alt: "Completed two-storey hostel block with balconies" },
   faith: { src: unsplash("1555696958-c5049b866f6f", 1400), alt: "Brown concrete church building" },
   infrastructure: { src: unsplash("1562033291-d09c5d4cb8cc", 1400), alt: "Grey concrete flyover" },
 };
@@ -230,7 +241,15 @@ const real = (category: Category) => (id: string, file: string, title: string, n
 const r = real("industrial");
 
 export const works: Work[] = [
-  // Army Training School hostel, Benin (real photos)
+  // Finished 56-room officers' hostel (real photos, /public/images/important)
+  real("hostel")("h-officers-finished", IMP["officers-finished"], "Officers' hostel, completed", "Two-storey block with balconies, covered verandas and a navy plinth band."),
+  real("hostel")("h-officers-handover", IMP["officers-handover"], "Walk-through with the client", "Army officers and the project team in front of the completed block."),
+  real("hostel")("h-officers-row", IMP["officers-row"], "Row of completed blocks", "Stepped two-storey blocks with balconies and a paved forecourt."),
+  real("hostel")("h-officers-forecourt", IMP["officers-forecourt"], "Forecourt inspection", "Army personnel and the team inspecting the forecourt works."),
+  real("hostel")("h-officers-entrance", IMP["officers-entrance"], "Entrance elevation", "Two-storey entrance front with balcony rails and a name board."),
+  real("hostel")("h-officers-road", IMP["officers-road"], "Hostel seen from the road", "The completed block and its neighbours from the approach road."),
+
+  // Other Army hostel blocks, Benin (real photos)
   real("hostel")("h-front", NEW["hy-front"], "Finished accommodation block", "Completed single-storey block with yellow render, navy plinth band and dark pitched roof."),
   real("hostel")("h-corner", NEW["hy-corner"], "Block corner and roof line", "Deep eaves, rainwater goods and a clean plinth detail along the block."),
   real("hostel")("h-end", NEW["hy-end"], "Block end elevation", "Corridor veranda and windows along the long side of the block."),
