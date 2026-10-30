@@ -1,3 +1,4 @@
+
 // Single source of truth for company content.
 // Source: "Draft Quintus Projects Company Profile.docx" + "Company Profile (PDF)".
 // Anything marked CONFIRM should be checked by the client before launch.
@@ -246,7 +247,7 @@ export const team = [
   {
     name: "Bisi Akinjide",
     role: "ESTIMATION MANAGER/QUANTITY SURVEYOR",
-    bio: "Estimation Manager/Quantity Surveyor with expertise in construction cost estimation, preparation of Bills of Quantities (BOQ), project budgeting, cost control, tender preparation, and contract administration. Skilled in material take-offs, cost analysis, valuation of construction works, and variation assessment. Committed to ensuring accurate project costing, effective cost management, and budget compliance while maximizing profitability and delivering value across Quintus Projects Ltd.’s construction projects.",
+    bio: "Bisi Akinjide is an Estimation Manager/Quantity Surveyor with expertise in construction cost estimation, preparation of Bills of Quantities (BOQ), project budgeting, cost control, tender preparation, and contract administration. Skilled in material take-offs, cost analysis, valuation of construction works, and variation assessment.",
   },
   {
     name: "Iyabo Atilola",
@@ -256,7 +257,7 @@ export const team = [
   {
     name: "Samuel Akin-Jesu Adewole ",
     role: "CIVIL ENGINEERING MANAGER",
-    bio: "Civil engineering professional with years of experience in construction supervision, site management, and project execution. He has worked on multi-storey commercial building projects across Nigeria. His expertise includes interpreting architectural and structural drawings, supervising site personnel, preparing work schedules, interpreting Bills of Quantities, coordinating with quantity surveyors, structural analysis and design, and enforcing health and safety standards. He holds a degree from the Federal University of Technology, Minna, with proficiency in AutoCAD, ProtaStructure, Orion, and Microsoft Project.",
+    bio: "Samuel Akin-Jesu Adewole holds a degree from federal University of Technology, Minna. He is  civil engineering professional with years of experience in construction supervision, site management, and project execution. He has worked on multi-storey commercial building projects across Nigeria.",
   },
   {
     name: "Ayomiposi Fadojutimi",
@@ -266,7 +267,7 @@ export const team = [
   {
     name: "Ajibola Fakunle",
     role: "PROCUREMENT MANAGER ",
-    bio: "Results-driven Procurement Manager with expertise in sourcing construction materials, negotiating with suppliers, managing vendor relationships, and ensuring timely, cost-effective procurement for construction projects. Skilled in cost control, inventory management, supplier evaluation, purchase order administration, and quality assurance. He is a graduate of University of Ilorin who is committed to maintaining procurement transparency, optimizing project budgets, and ensuring materials and equipment meet required specifications and delivery schedules to support efficient project execution.",
+    bio: "Ajibola Fakunle is graduate of University of Ilorin, who is a results-driven Procurement Manager with expertise in sourcing construction materials, negotiating with suppliers, managing vendor relationships, and ensuring timely, cost-effective procurement for construction projects.",
   },
 ];
 
